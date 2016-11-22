@@ -20,7 +20,7 @@
     UIDatePicker *datePicker;
     
 }
-@synthesize delegateDP,boolmaxDate , boolminDate , rightText;
+@synthesize delegateDP,boolmaxDate , boolminDate , rightText , boolNotToday;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -38,7 +38,17 @@
 
     if (boolmaxDate)
     {
-            datePicker.maximumDate = [NSDate date];
+        if(boolNotToday)
+        {
+              datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow: -(60.0f*60.0f*24.0f)];
+       
+        }
+        
+        else
+        {
+                datePicker.maximumDate = [NSDate date];
+        }
+        
     }
     
     if (boolminDate)
@@ -208,7 +218,7 @@
 }
 -(void)numberPaddoneClicked:(id)sender
 {
-        [self datePickerValueChanged:datePicker];
+    [self datePickerValueChanged:datePicker];
     [self resignFirstResponder];
     if (delegateDP)
     {

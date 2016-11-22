@@ -24,5 +24,6 @@
 @property (nonatomic) IBInspectable NSString * rightText;
 @property (nonatomic) IBInspectable BOOL boolmaxDate;
 @property (nonatomic) IBInspectable BOOL boolminDate;
+@property (nonatomic) IBInspectable BOOL boolNotToday;
 
 @end
